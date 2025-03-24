@@ -153,3 +153,50 @@ random numbers:
      fl = Math.Truncate(10 * fl) / 10; //<-- times by x, then truncate, then divide by x to get x number of decimal places (10 for 1 dp, 100 for 2 dp, etc)
  }
 -----------------------------------------------------------------------------
+combo box:
+string colour = (string)cbxColour.SelectedItem;
+int size = int.Parse(cbxSize.SelectedItem.ToString()); <-- getting item from combo box
+-----------------------------------------------------------------------------
+change text size / colour:
+            txtText.ForeColor = Color.FromName(colour);
+            txtText.Font = new Font("Microsoft Sans Serif", size);
+-----------------------------------------------------------------------------
+hide password:
+        private void btnHidePassword_Click(object sender, EventArgs e) <-- code to show/hide password when clicling button
+        {
+            if (txtText.UseSystemPasswordChar == true)
+            {
+                txtText.UseSystemPasswordChar = false;
+                btnHidePassword.Text = "Showing";
+            }
+            else if (txtText.UseSystemPasswordChar == false)
+            {
+                txtText.UseSystemPasswordChar = true;
+                btnHidePassword.Text = "Hidden";
+            }
+        }
+set UseSystemPasswordChar to true for the textbox 
+------------------------------------------------------------------------
+text length:
+        private void txtText_TextChanged(object sender, EventArgs e)
+        {
+            int charNum = txtText.Text.Length;
+            lblCharacterNum.Text = charNum.ToString() + "/10"; <-- use this to display the character number and limit using a label
+        }
+set maxlength on the textbox to stop user from typing past character limit
+-----------------------------------------------------------------------
+checking string for things:
+            foreach (char c in txtText.Text) 
+            {
+                if (char.IsDigit(c)) <-- can also be done for upper, lower, etc, can also check for specific character by using c == ''
+                {
+                    lblNumTrue.Text = "True";
+                    break;
+                }
+                else
+                {
+                    lblNumTrue.Text = "False";
+                }
+            }
+loops through the string on text changed to see if it contains x thing and changes the appropriate label to match that
+--------------------------------------------------------------------
