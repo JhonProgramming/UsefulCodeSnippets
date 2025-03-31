@@ -200,3 +200,10 @@ checking string for things:
             }
 loops through the string on text changed to see if it contains x thing and changes the appropriate label to match that
 --------------------------------------------------------------------
+graph:
+            chart.Series["Energy Usage"].Points.AddXY(0, 0); <-- add point to graph
+            chart.ChartAreas[0].AxisX.Title = "x"; <-- add axis label
+            ![image](https://github.com/user-attachments/assets/3f0a1e13-d4ef-418e-838b-ea8a5d5e9bf8)
+            ^
+            go to series and mess around with that to change the line and the title and stuff
+--------------------------------------------------------------------
